@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "styled-components";
+
+import Home from "./Pages/Home";
+import "./styles/App.css";
+import GlobalStyle from "./styles/Global";
 
 function App() {
+  const theme = {
+    borderColor: "#BFBFBF",
+    hoverColor: "#636262",
+    hoverColors: [
+      "rgb(157, 213, 216)",
+      "#0FB197",
+      "rgb(65, 39, 75)",
+      "#1F849F",
+      "#FFC036",
+      "#778a74",
+    ],
+  };
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+    <Home/>
+    </ThemeProvider>
   );
 }
 
